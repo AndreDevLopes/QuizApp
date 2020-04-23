@@ -47,9 +47,53 @@ class _QuizAppState extends State<QuizApp> {
                 height: 180,
               ),
             ),
-            Container(
-              height: 120,
-              child: Text(questionBank[0].questionText),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(14.4),
+                  border: Border.all(
+                      color: Colors.blueGrey.shade400,
+                      style: BorderStyle.solid),
+                ),
+                height: 120,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      questionBank[0].questionText,
+                      style: TextStyle(fontSize: 16.9, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () => _checkAnswer(),
+                  color: Colors.blueGrey.shade900,
+                  child: Text(
+                    "Verdadeiro",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                RaisedButton(
+                  onPressed: () => _checkAnswer(),
+                  color: Colors.blueGrey.shade900,
+                  child: Text(
+                    "Falso",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                RaisedButton(
+                  onPressed: () => _nextQuestion(),
+                  color: Colors.blueGrey.shade900,
+                  child: Icon(Icons.arrow_forward, color: Colors.white),
+                ),
+              ],
             ),
             Spacer(),
           ],
@@ -57,4 +101,8 @@ class _QuizAppState extends State<QuizApp> {
       ),
     );
   }
+
+  _nextQuestion() {}
+
+  _checkAnswer() {}
 }
